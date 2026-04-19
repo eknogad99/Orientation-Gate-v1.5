@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "name": "Production Destructive Operation",
+      "keywords": ["delete production", "drop production", "truncate production", "production database"],
+      "priority_strict": 100,
+      "priority_adaptive": 95,
+      "level": "CRITICAL",
+      "action": "BLOCK",
+      "explanation": "Destructive operations on production systems are not allowed."
+    },
+    {
+      "name": "Large-Scale Irreversible Cleanup",
+      "keywords": ["delete", "cleanup", "history", "batch", "500gb"],
+      "priority_strict": 85,
+      "priority_adaptive": 75,
+      "level": "WARN",
+      "action": "WARN",
+      "explanation": "Large-scale irreversible deletions require review."
+    },
+    {
+      "name": "Policy Alignment",
+      "keywords": ["policy", "aligned", "approved"],
+      "priority_strict": 90,
+      "priority_adaptive": 75,
+      "level": "INFO",
+      "action": "ALLOW",
+      "explanation": "Input matches policy alignment terms."
+    },
+    {
+      "name": "Potential Deviation",
+      "keywords": ["deviation", "misaligned", "override"],
+      "priority_strict": 85,
+      "priority_adaptive": 70,
+      "level": "WARN",
+      "action": "BLOCK",
+      "explanation": "Input indicates potential deviation."
+    },
+    {
+      "name": "Delay or Timing Change",
+      "keywords": ["delay", "postpone", "reschedule"],
+      "priority_strict": 45,
+      "priority_adaptive": 35,
+      "level": "WARN",
+      "action": "WARN",
+      "explanation": "Schedule or timing changes may require review."
+    }
+  ]
+}
